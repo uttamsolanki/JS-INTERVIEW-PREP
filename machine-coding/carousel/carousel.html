@@ -1,54 +1,136 @@
 <!DOCTYPE html>
-<head>
-  <title>Vanilla Javascript</title>
-  <script src="./carousel.js" type="text/Javascript"></script>
-  <style>
-    #container {
-      display: block;
-      width: 500px;
-    }
-    #btn-container {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    #img-container img {
-      display: none;
-      width: 500px;
-      height: 400px;
-      object-fit: fill;
-    }
-    #img-container img.active {
-      display: block;
-    }
-    #dots-container {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #dots-container .dot {
-      background-color: gray;
-      width: 10px;
-      height: 10px;
-      border-radius: 50px;
-      margin: 5px;
-      cursor: pointer;
-    }
-    #dots-container .dot.active {
-      background-color: black;
-      width: 15px;
-      height: 15px;
-    }
-  </style>
-</head>
-<body>
-  <div id="container">
-    <div id="btn-container">
-      <button type="button" id="prev">Prev</button>
-      <button type="button" id="next">Next</button>
+<html>
+  <head>
+    <title>Carousal Component</title>
+    <script src="./carousel.js" type="text/Javascript"></script>
+    <style>
+      body {
+        margin: 0;
+        background: aliceblue;
+      }
+      #container {
+        display: block;
+        width: 500px;
+        position: relative;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin: auto;
+        transform: translateY(50%);
+      }
+      #btn-container {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #img-container img {
+        display: block;
+        width: 500px;
+        height: 400px;
+        object-fit: fill;
+      }
+      #img-container img.active {
+        display: block;
+      }
+      #dots-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #dots-container .dot {
+        background-color: gray;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      #dots-container .dot.active {
+        background-color: white;
+        width: 15px;
+        height: 15px;
+      }
+      .carousal-btn {
+        background: transparent;
+        border: white;
+      }
+
+      #next {
+        margin-left: auto;
+      }
+
+      .arrow {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        cursor: pointer;
+        padding: 10px;
+      }
+      .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+
+      .left {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+      }
+      #modal {
+        display: none;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+      }
+
+      #close-modal {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border: 9px;
+        font-size: 27px;
+        z-index: 5;
+        cursor: pointer;
+      }
+      #img-gallary {
+        padding: 50px;
+        display: flex;
+      }
+      #img-gallary img {
+        width: 150px;
+        padding: 5px;
+      }
+      #img-gallary img.active {
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="modal">
+      <div id="container">
+        <div id="btn-container">
+          <button type="button" id="prev" class="carousal-btn">
+            <i class="arrow left"></i>
+          </button>
+          <button type="button" id="next" class="carousal-btn">
+            <i class="arrow right"></i>
+          </button>
+        </div>
+        <div id="img-container"></div>
+        <div id="dots-container"></div>
+      </div>
+      <button type="button" id="close-modal">X</button>
     </div>
-    <div id="img-container"></div>
-    <div id="dots-container"></div>
-  </div>
-</body>
+    <div id="img-gallary"></div>
+  </body>
+</html>

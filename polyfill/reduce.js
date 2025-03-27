@@ -18,9 +18,9 @@ Array.prototype.myreduce = function (callbackFn, initialValue) {
   }
   let accumulator = initialValue;
   for (let i = 0; i < this.length; i++) {
-    if (!this[i]) {
-      continue;
-    }
+    // if (!this[i]) {
+    //   continue;
+    // }
     if (!accumulator) {
       accumulator = this[i];
     } else {
@@ -30,7 +30,7 @@ Array.prototype.myreduce = function (callbackFn, initialValue) {
   return accumulator;
 };
 
-let arr = [1, 2, 3, 4, 5, 6];
+const arr = [1, 2, 3, 4, 5, 6];
 
 const sum = (accValue, currValue) => accValue + currValue;
 console.log(arr.reduce(sum));

@@ -8,8 +8,8 @@
  */
 
 Array.prototype.Every = function (callbackFn, thisArg) {
+  //check if array or not
   for (let i = 0; i < this.length; i++) {
-    if (!this[i]) continue;
     let callBack = callbackFn.call(thisArg, this[i], i, this);
     if (!callBack) {
       return false;
@@ -18,7 +18,7 @@ Array.prototype.Every = function (callbackFn, thisArg) {
   return true;
 };
 
-let arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5];
 
 const isSmallerThen5 = (x) => x <= 5;
 

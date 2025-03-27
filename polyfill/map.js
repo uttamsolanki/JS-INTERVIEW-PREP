@@ -10,18 +10,15 @@
  */
 
 Array.prototype.mymap = function (callbackFn, thisArgs = this) {
-  let mapArray = [];
+  const mapArray = [];
   mapArray.length = this.length;
   for (let i = 0; i < this.length; i++) {
-    if (!this[i]) {
-      continue;
-    }
     mapArray[i] = callbackFn.call(thisArgs, this[i], i, this);
   }
   return mapArray;
 };
 
-let arr = [1, 2, 3, 4, , 5, {}];
+const arr = [1, 2, 3, 4, , 5, {}];
 
 const callbackFn = (item) => item * 2;
 

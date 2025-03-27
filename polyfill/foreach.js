@@ -11,12 +11,11 @@
 
 Array.prototype.foreach = function (callbackFn, thisArg = this) {
   for (let i = 0; i < this.length; i++) {
-    if (!this[i]) continue;
     callbackFn.call(thisArg, this[i], i, this);
   }
 };
 
-let arr = [1, 2, 3, 4, , 5];
+const arr = [1, 2, 3, 4, , 5];
 
 arr.forEach(console.log);
 arr.foreach(console.log);
