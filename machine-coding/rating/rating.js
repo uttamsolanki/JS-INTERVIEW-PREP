@@ -19,11 +19,15 @@ const onDomLoad = () => {
 
   const initListener = () => {
     ratingContainer.addEventListener("mouseover", (event) => {
-      updateRating(event.target.dataset.value);
+      if (event.target.classList.contains("star")) {
+        updateRating(event.target.dataset.value);
+      }
     });
 
-    ratingContainer.addEventListener("mouseout", () => {
-      updateRating(selectedRating);
+    ratingContainer.addEventListener("mouseout", (event) => {
+      if (event.target.classList.contains("star")) {
+        updateRating(selectedRating);
+      }
     });
 
     ratingContainer.addEventListener("click", (event) => {
@@ -34,7 +38,7 @@ const onDomLoad = () => {
   };
 
   const updateRating = (ratingValue) => {
-    const children = document.querySelectorAll(".star");
+    const children = document.querySelectorAll(".star"); //TODO: make it global
     children.forEach((child) => {
       if (child.dataset.value <= ratingValue) {
         child.classList.add("active");

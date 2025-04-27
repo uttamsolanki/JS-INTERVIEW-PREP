@@ -1,0 +1,26 @@
+body,
+html {
+  height: 100%;
+}
+/* One way centering div */
+/* #child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* Second way centering div */
+/* #parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+} */
+
+/* Third way centering div */
+#parent {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}

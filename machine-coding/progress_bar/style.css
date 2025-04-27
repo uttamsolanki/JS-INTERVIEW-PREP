@@ -1,0 +1,27 @@
+#main-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#main-container {
+  width: 100%;
+}
+
+#progressbar_container {
+  width: 500px;
+  border: 1px solid black;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+#percentage {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.5s linear;
+}

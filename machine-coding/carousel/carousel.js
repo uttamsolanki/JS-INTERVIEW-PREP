@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       createGallary();
       addListeners();
       createDots();
-      updateImage();
+      updateCarousalImage();
     }
   };
 
@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
       const json = await resp.json();
       return json;
     } catch (e) {
+      console.log("Get image API faild");
       return [];
     }
   };
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         // Get the index of the clicked image
         index = images.indexOf(event.target);
 
-        updateImage();
+        updateCarousalImage();
 
         //open modal
         openModal();
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         // Get the index of the clicked image
         index = images.indexOf(event.target);
 
-        updateImage();
+        updateCarousalImage();
       }
     });
 
@@ -79,11 +80,11 @@ document.addEventListener("DOMContentLoaded", async (event) => {
 
     nextBtn.addEventListener("click", () => {
       index = (index + 1) % images.length;
-      updateImage();
+      updateCarousalImage();
     });
     prevBtn.addEventListener("click", () => {
       index = (index - 1 + images.length) % images.length;
-      updateImage();
+      updateCarousalImage();
     });
   };
 
@@ -113,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
     });
   };
 
-  const updateImage = () => {
+  const updateCarousalImage = () => {
     let img = imgContainer.getElementsByTagName("img")[0];
     if (!img) {
       img = document.createElement("img");

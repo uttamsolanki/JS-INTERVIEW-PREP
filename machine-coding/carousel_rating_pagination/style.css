@@ -1,0 +1,218 @@
+/* Main Container start */
+body {
+  margin: 0;
+  background: aliceblue;
+}
+
+#main-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+/* Main Container end */
+
+/* Modal styles  start*/
+#modal {
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+}
+#close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 9px;
+  font-size: 27px;
+  z-index: 5;
+  cursor: pointer;
+}
+#modal-container {
+  display: block;
+  width: 500px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: auto;
+  transform: translateY(50%);
+}
+
+/* Modal styles  end*/
+
+/* Carousel styles  start*/
+#btn-container {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn {
+  background: transparent;
+  border: white;
+}
+
+#next {
+  margin-left: auto;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  cursor: pointer;
+  padding: 10px;
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+#img-container img {
+  display: block;
+  width: 500px;
+  height: 400px;
+  object-fit: fill;
+}
+#img-container img.active {
+  display: block;
+}
+#dots-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#dots-container .dot {
+  background-color: gray;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  margin: 5px;
+  cursor: pointer;
+}
+#dots-container .dot.active {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+}
+
+/* Carousel styles  end*/
+
+/* Image Gallery styles  start*/
+#gallery-container {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 550px;
+  gap: 7px;
+}
+
+.img-container {
+  flex: 0 0 30%;
+  outline: 2px solid gray;
+  padding: 5px;
+}
+
+.img-container img {
+  width: 100%;
+}
+.img-caption {
+  display: flex;
+  flex-direction: column;
+}
+#gallery-container .img-container.active {
+  outline: 2px solid blue;
+}
+
+@media (width <= 1250px) {
+  .img-container {
+    flex: 0 0 45%;
+  }
+}
+
+@media (width <= 750px) {
+  .img-container {
+    flex: 0 0 100%;
+  }
+}
+
+/* Image Gallery styles  end*/
+
+/* Pagination Style start  */
+#pagination-container {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+#pagination-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+#pagination-container ul li {
+  padding: 5px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+#pagination-container ul li.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* Pagination end here */
+
+/* Star Rating start*/
+.star {
+  cursor: pointer;
+  transition: fill 0.3s, stroke 0.3s;
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+}
+.star.selected {
+  fill: gold;
+  stroke: gold;
+}
+
+/* Star rating end */
+
+/* Search Container  Start */
+.main__search__container {
+  display: flex;
+  padding-top: 50px;
+}
+
+.main__search__container--search {
+  height: 25px;
+  width: 250px;
+}
+
+.main__search__container--search {
+  height: 25px;
+  width: 250px;
+}
+.main__search__container--sort__btn__image {
+  width: 20px;
+}
